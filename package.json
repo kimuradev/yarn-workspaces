@@ -1,0 +1,18 @@
+{
+  "name": "yarn-workspaces",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "next": "yarn workspace project-next dev",
+    "cra": "yarn workspace project-react start",
+    "start": "concurrently --kill-others-on-fail \"yarn next\"  \"yarn cra\""
+  },
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "shared-lib": "1.0.0"
+  }
+}

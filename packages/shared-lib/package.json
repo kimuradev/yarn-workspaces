@@ -1,0 +1,37 @@
+{
+  "name": "shared-lib",
+  "version": "1.0.0",
+  "description": "Nossa biblioteca de exemplo",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build:clean": "shx rm -rf ./dist",
+    "build:js": "babel src --extensions .ts,.tsx --out-dir dist --ignore \"**/*.test.*\",\"**/*.stories.*\"",
+    "build:types": "tsc --outDir dist --emitDeclarationOnly",
+    "build": "npm-run-all build:*",
+    "prepublishOnly": "npm run build",
+    "release": "standard-version",
+    "dev": "npm run storybook",
+    "storybook": "start-storybook -p 6006",
+    "build:storybook": "build-storybook"
+  },
+  "author": "Nome do Squad ou Chapter responsável",
+  "private": true,
+  "devDependencies": {
+    "@babel/cli": "^7.10.4",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "@babel/preset-typescript": "^7.10.4",
+    "@storybook/react": "^5.3.19",
+    "@types/react": "^16.9.41",
+    "babel-loader": "^8.1.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "shx": "^0.3.2",
+    "standard-version": "^8.0.0",
+    "typescript": "^3.9.5"
+  }
+}
